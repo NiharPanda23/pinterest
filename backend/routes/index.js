@@ -5,10 +5,14 @@ const postsModel = require("./posts");
 const passport = require('passport');
 const localStrategy = require('passport-local');
 
-passport.authenticate(new localStrategy(userModel.authenticate()));
+passport.use(new localStrategy(userModel.authenticate()));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  res.render("register");
+});
+
+router.get('/login', function(req, res) {
   res.render("login");
 });
 
@@ -26,9 +30,9 @@ router.post("/register", function(req, res) {
   const userData = new userModel({username, email, fullname }); /* Short code for register new user*/
 
   userModel.register(userData, req.body.password)
-  .then(function(){
+  .then(function(registeredUser){
     passport.authenticate("local")(req, res, function(){
-      res.send("Welcome to the profile");
+      res.redirect("/profile");
     })
   })
 });
@@ -36,9 +40,7 @@ router.post("/register", function(req, res) {
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/profile",
   failureRedirect: "/"
-}), function(req, res) {
-  
-});
+}), function(req, res) { });
 
 router.get("/logout", function(req, res){
   req.logout(function(err) {
