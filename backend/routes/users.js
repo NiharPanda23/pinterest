@@ -12,7 +12,6 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
   },
   posts: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -26,7 +25,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  fullName: {
+  fullname: {
     type: String,
     required: true,
   },
@@ -34,4 +33,4 @@ const userSchema = new mongoose.Schema({
 
 userSchema.plugin(plm);
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('user', userSchema);

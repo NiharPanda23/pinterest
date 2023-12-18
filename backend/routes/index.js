@@ -23,12 +23,12 @@ router.post("/register", function(req, res) {
   //   fullName: req.body.fullname
   // });
   const { username, email, fullname } = req.body;
-  const userData = new userModel.create({username, email, fullname }); /* Short code for register new user*/
+  const userData = new userModel({username, email, fullname }); /* Short code for register new user*/
 
   userModel.register(userData, req.body.password)
   .then(function(){
     passport.authenticate("local")(req, res, function(){
-      res.redirect("/profile");
+      res.send("Welcome to the profile");
     })
   })
 });
