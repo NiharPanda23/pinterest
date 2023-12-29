@@ -13,11 +13,15 @@
         <div class="profile-picture">
           <img src="https://images.unsplash.com/photo-1610276198568-eb6d0ff53e48?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Profile Picture">
         </div>
-        <h2 class="name">User Name</h2>
-        <h3 class="username">@username</h3>
+        <h2 class="name"><%= user.fullname %></h2>
+        <h3 class="username"><%= user.username %></h3>
         <p class="tagline">Hunter.</p>
         <p class="description">Designer.</p>
         <a href="/logout" class="button">Logout</a>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <input type="file" name="file">
+          <input type="submit" value="Upload Post">
+        </form>
       </div>
     </div>
     <div class="containers">
