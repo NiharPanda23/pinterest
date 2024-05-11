@@ -10,7 +10,11 @@ body {
     margin: 0 auto;
     padding: 20px;
   }
-  
+  .flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
   .cardpers {
     background-color: #fff;
     border-radius: 5px;
@@ -18,7 +22,17 @@ body {
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+  form{
+    margin: 10px;
+  }
+  input{
+    margin-bottom: 10px;
+  }
+  .upload{
+    display: flex;
+    margin: auto;
+    gap: 10px;
+  }
   .profile-picture {
     width: 150px;
     height: 150px;
